@@ -96,7 +96,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -110,6 +110,23 @@ def draw_parallel_lines(n, point, length, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+
+    x = point.x  # Initialize x and y BEFORE the loop
+    y = point.y  # Choose values that make the FIRST object easy to draw
+
+    for _ in range(n):  # Loop that does NOT use its index variable
+
+        point = rg.Point(x, y)
+        end = rg.Point(length+x,y)
+        line = rg.Line(point,end)
+        # Attach the object(s) to the window.
+        line.attach_to(window)
+        # --------------------------------------------------------------
+        # Increment x (and in other problems, other variables)
+        # for the thing(s) to draw in the NEXT iteration of the loop.
+        # --------------------------------------------------------------
+        y = y + 30
+    window.render()
 
 def run_test_draw_lines():
     """ Tests the   draw_lines  function. """
@@ -161,7 +178,7 @@ def draw_lines(n, point, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -175,6 +192,28 @@ def draw_lines(n, point, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    x = point.x  # Initialize x and y BEFORE the loop
+    y = point.y  # Choose values that make the FIRST object easy to draw
+
+    for k in range(n):
+
+        point = rg.Point(x,y)
+
+        end = rg.Point(x+100, y -100+ (200/n)*(k+1))
+        line = rg.Line(point,end)
+
+       #a= y-100 +(200/4)*k
+
+        # Attach the object(s) to the window.
+        line.attach_to(window)
+
+        # --------------------------------------------------------------
+        # Increment x (and in other problems, other variables)
+        # for the thing(s) to draw in the NEXT iteration of the loop.
+        # --------------------------------------------------------------
+
+
+    window.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
